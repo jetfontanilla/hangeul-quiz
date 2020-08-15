@@ -1,12 +1,13 @@
 <template>
-  <div v-for="item of items" :key="item.message">{{ item }}</div>
+  <div v-for="choice in choices" :key="choice.text" @click="$emit('on-answer', choice.text)">{{ choice.character }}</div>
 </template>
 
 <script>
 export default {
   name: 'FlashCards',
+  emits: ['on-answer'],
   props: {
-    msg: String
+    choices: Array
   }
 }
 </script>

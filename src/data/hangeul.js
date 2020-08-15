@@ -1,0 +1,59 @@
+export default [{
+    text: "g",
+    character: "ㄱ"
+}, {
+    text: "kk",
+    character: "ㄲ"
+}, {
+    text: "n",
+    character: "ㄴ"
+}, {
+    text: "d",
+    character: "ㄷ"
+}, {
+    text: "tt",
+    character: "ㄸ"
+}, {
+    text: "r",
+    character: "ㄹ"
+}, {
+    text: "m",
+    character: "ㅁ"
+}, {
+    text: "b",
+    character: "ㅂ"
+}, {
+    text: "pp",
+    character: "ㅃ"
+}, {
+    text: "s",
+    character: "ㅅ"
+}, {
+    text: "ss",
+    character: "ㅆ"
+}, {
+    text: "ng",
+    character: "ㅇ"
+}, {
+    text: "j",
+    character: "ㅈ"
+}, {
+    text: "jj",
+    character: "ㅉ"
+}, {
+    text: "ch",
+    character: "ㅊ"
+}, {
+    text: "k",
+    character: "ㅋ"
+}, {
+    text: "t",
+    character: "ㅌ"
+}, {
+    text: "p",
+    character: "ㅍ"
+}, {
+    text: "h",
+    character: "ㅎ"
+}];
+

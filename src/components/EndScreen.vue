@@ -1,12 +1,15 @@
 <template>
-  <div>Your Score:</div>
+  <div>Your Score: {{ score }} / {{ total }}</div>
+  <input type="button" value="Try Again?" @click="$emit('on-reset')" />
 </template>
 
 <script>
 export default {
   name: 'EndScreen',
+  emits: ['on-reset'],
   props: {
-    msg: String
+    score: Number,
+    total: Number
   }
 }
 </script>

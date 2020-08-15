@@ -1,22 +1,38 @@
 <template>
   <div id="app">
-    <StartScreen v-if="!started" :quiz-count="quizCount" @update:quizCount="generateStack"></StartScreen>
-    <FlashCards v-if="!started && !completed" :choices="currentItem"/>
-    <EndScreen v-if="completed"></EndScreen>
+    <StartScreen v-if="!started"
+                 :quiz-count="quizCount"
+                 @update:quizCount="generateStack"
+    ></StartScreen>
+    <QuizCards v-if="started && !completed && currentItem"
+               :quiz-object="currentItem"
+               :mode="getMode()"
+               @on-answer="onAnswer"
+    ></QuizCards>
+    <EndScreen v-if="completed"
+               :score="score"
+               :total="quizCount"
+               @on-reset="reset"
+    ></EndScreen>
   </div>
 </template>
 
 <script>
 import StartScreen from "@/components/StartScreen";
-import FlashCards from '@/components/FlashCards.vue'
+import QuizCards from "@/components/QuizCards.vue";
 import EndScreen from "@/components/EndScreen";
 import hangeul from "@/data/hangeul";
+import sample from "lodash-es/sample";
+import filter from "lodash-es/filter";
+import sampleSize from "lodash-es/sampleSize";
+import map from "lodash-es/map";
+import shuffle from "lodash-es/shuffle";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     StartScreen,
-    FlashCards,
+    QuizCards,
     EndScreen
   },
   data() {
@@ -26,9 +42,8 @@ export default {
       currentItem: undefined,
       currentStack: [],
       quizCount: 10,
-      score: 0,
-      total: 0
-    }
+      score: 0
+    };
   },
   methods: {
     reset() {
@@ -37,13 +52,29 @@ export default {
       this.currentItem = undefined;
       this.currentStack = [];
       this.score = 0;
-      this.total = 0;
     },
     generateStack(quizCount) {
       this.quizCount = quizCount;
-      this.currentStack = hangeul;
+      this.currentStack = map(new Array(this.quizCount), function() {
+        let answer = sample(hangeul);
+        let choices = sampleSize(filter(hangeul, function(item) {
+          return item.text !== answer.text;
+        }), 3);
+        choices.push(answer);
+
+        return {
+          answer: answer,
+          choices: shuffle(choices)
+        };
+      });
       this.generateNextItem();
       this.started = true;
+    },
+    onAnswer(answerText) {
+      if (answerText === this.currentItem.answer.text) {
+        this.score += 1;
+      }
+      this.generateNextItem();
     },
     generateNextItem() {
       if (this.currentStack.length === 0) {
@@ -51,9 +82,12 @@ export default {
         return;
       }
       this.currentItem = this.currentStack.pop();
+    },
+    getMode() {
+      return sample(["text", "character"]);
     }
   }
-}
+};
 </script>
 
 <style>

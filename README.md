@@ -1,5 +1,5 @@
-# hangeul-flashcards
-simple flashcard app to teach Hangeul
+# Hangeul Quiz
+simple quiz app to memorize Hangeul
 
 ## Project setup
 ```

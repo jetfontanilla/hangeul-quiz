@@ -112,9 +112,8 @@ html, body {
 }
 
 @media (min-width: 768px) {
-  #app {
-    height: 90%;
-    margin-top: 5%;
+  body {
+    padding: 5rem;
   }
 }
 </style>

@@ -1,5 +1,7 @@
 # Hangeul Quiz
-simple quiz app to memorize Hangeul
+A simple quiz app to memorize Korean Alphabet, also known as Hangeul (한글)
+to view the app in action, go to:
+https://jetfontanilla.github.io/hangeul-quiz/
 
 ## Project setup
 ```

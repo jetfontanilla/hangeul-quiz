@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="w-full h-full md:w-1/2 mx-auto p-3 bg-blue-300 rounded">
     <StartScreen v-if="!started"
                  :quiz-count="quizCount"
                  @update:quizCount="generateStack"
@@ -91,12 +91,21 @@ export default {
 </script>
 
 <style>
+html, body {
+  height: 100%;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  #app {
+    height: 90%;
+    margin-top: 5%;
+  }
 }
 </style>

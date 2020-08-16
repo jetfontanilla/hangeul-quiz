@@ -17,17 +17,17 @@
 
 <script>
 export default {
-  name: 'StartScreen',
+  name: "StartScreen",
   props: {
     quizCount: Number
   },
-  emits: ['update:quizCount'],
+  emits: ["update:quizCount"],
   data() {
     return {
       currentQuizCount: this.quizCount
-    }
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -13,13 +13,13 @@
 
 <script>
 export default {
-  name: 'EndScreen',
-  emits: ['on-reset'],
+  name: "EndScreen",
+  emits: ["on-reset"],
   props: {
     score: Number,
     total: Number
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -7,6 +7,7 @@
     <QuizCards v-if="started && !completed && currentItem"
                :quiz-object="currentItem"
                :mode="getMode()"
+               :checked="checked"
                @on-answer="onAnswer"
     ></QuizCards>
     <EndScreen v-if="completed"
@@ -39,6 +40,7 @@ export default {
     return {
       started: false,
       completed: false,
+      checked: false,
       currentItem: undefined,
       currentStack: [],
       quizCount: 10,
@@ -49,6 +51,7 @@ export default {
     reset() {
       this.started = false;
       this.completed = false;
+      this.checked = false;
       this.currentItem = undefined;
       this.currentStack = [];
       this.score = 0;
@@ -71,16 +74,21 @@ export default {
       this.started = true;
     },
     onAnswer(answerText) {
+      if (this.checked) {
+        return;
+      }
       if (answerText === this.currentItem.answer.text) {
         this.score += 1;
       }
-      this.generateNextItem();
+      this.checked = true;
+      setTimeout(this.generateNextItem, 1000);
     },
     generateNextItem() {
       if (this.currentStack.length === 0) {
         this.completed = true;
         return;
       }
+      this.checked = false;
       this.currentItem = this.currentStack.pop();
     },
     getMode() {
@@ -94,6 +102,7 @@ export default {
 html, body {
   height: 100%;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,5 +1,11 @@
 <template>
-  <div class="h-full text-xl bg-white flex flex-col justify-center">
+  <div class="end-main h-full text-xl bg-white flex flex-col justify-center"
+       :class="{
+          'bg-success': score > 7,
+          'bg-passed': score > 4 && score <= 7,
+          'bg-fail': score <= 4
+       }"
+  >
     <div>Your Score: {{ score }} / {{ total }}</div>
     <div>
       <input @click="$emit('on-reset')"
@@ -24,4 +30,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.bg-success {
+  background: #fff url("../assets/cat-success.gif") no-repeat right bottom;
+}
+.bg-passed {
+  background: #fff url("../assets/cat-passed.gif") no-repeat right bottom;
+}
+.bg-fail {
+  background: #fff url("../assets/cat-fail.gif") no-repeat right bottom;
+}
+.end-main {
+  background-size: auto 40vh;
+}
 </style>

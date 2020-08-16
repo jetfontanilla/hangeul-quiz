@@ -23,3 +23,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Attribution
+animated GIFs by [mixflavor](https://giphy.com/mixflavor)

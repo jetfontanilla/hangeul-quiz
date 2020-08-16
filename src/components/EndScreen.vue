@@ -1,9 +1,9 @@
 <template>
   <div class="end-main h-full text-xl bg-white flex flex-col justify-center"
        :class="{
-          'bg-success': score > 7,
-          'bg-passed': score > 4 && score <= 7,
-          'bg-fail': score <= 4
+          'bg-success': scorePercentage > 0.7,
+          'bg-passed': scorePercentage > 0.4 && scorePercentage <= 0.7,
+          'bg-fail': scorePercentage <= 0.4
        }"
   >
     <div>Your Score: {{ score }} / {{ total }}</div>
@@ -24,6 +24,11 @@ export default {
   props: {
     score: Number,
     total: Number
+  },
+  computed: {
+    scorePercentage() {
+      return this.total > 0 ? this.score / this.total : 0;
+    }
   }
 };
 </script>

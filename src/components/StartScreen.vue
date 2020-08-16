@@ -2,7 +2,7 @@
   <div class="h-full text-xl bg-white flex flex-col justify-center">
     <div>How Many Quiz Items?</div>
     <div>
-      <input type="text" v-model="currentQuizCount"
+      <input type="number" min="1" v-model="currentQuizCount"
              class="w-32 p-2 m-2 text-center border border-blue-500 rounded"
       />
     </div>

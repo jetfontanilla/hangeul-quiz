@@ -57,6 +57,9 @@ export default {
       this.score = 0;
     },
     generateStack(quizCount) {
+      if (!quizCount || quizCount <= 0) {
+        quizCount = 10;
+      }
       this.quizCount = quizCount;
       this.currentStack = map(new Array(this.quizCount), function() {
         let answer = sample(hangeul);

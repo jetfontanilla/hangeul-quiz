@@ -6,7 +6,7 @@
     ></StartScreen>
     <QuizCards v-if="started && !completed && currentItem"
                :quiz-object="currentItem"
-               :mode="getMode()"
+               :mode="mode"
                :checked="checked"
                @on-answer="onAnswer"
     ></QuizCards>
@@ -29,6 +29,9 @@ import sampleSize from "lodash-es/sampleSize";
 import map from "lodash-es/map";
 import shuffle from "lodash-es/shuffle";
 
+const DEFAULT_QUIZ_COUNT = 10;
+const ANIMATION_DELAY = 1000;
+
 export default {
   name: "App",
   components: {
@@ -42,8 +45,9 @@ export default {
       completed: false,
       checked: false,
       currentItem: undefined,
+      mode: undefined,
       currentStack: [],
-      quizCount: 10,
+      quizCount: DEFAULT_QUIZ_COUNT,
       score: 0
     };
   },
@@ -56,9 +60,10 @@ export default {
       this.currentStack = [];
       this.score = 0;
     },
-    generateStack(quizCount) {
-      if (!quizCount || quizCount <= 0) {
-        quizCount = 10;
+    generateStack(rawQuizCount) {
+      let quizCount = parseInt(rawQuizCount);
+      if (!quizCount || isNaN(quizCount) || quizCount <= 0) {
+        quizCount = DEFAULT_QUIZ_COUNT;
       }
       this.quizCount = quizCount;
       this.currentStack = map(new Array(this.quizCount), function() {
@@ -84,7 +89,7 @@ export default {
         this.score += 1;
       }
       this.checked = true;
-      setTimeout(this.generateNextItem, 1000);
+      setTimeout(this.generateNextItem, ANIMATION_DELAY);
     },
     generateNextItem() {
       if (this.currentStack.length === 0) {
@@ -92,10 +97,8 @@ export default {
         return;
       }
       this.checked = false;
+      this.mode = sample(["text", "character"]);
       this.currentItem = this.currentStack.pop();
-    },
-    getMode() {
-      return sample(["text", "character"]);
     }
   }
 };

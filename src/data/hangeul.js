@@ -55,5 +55,68 @@ export default [{
 }, {
     text: "h",
     character: "ㅎ"
+}, {
+    text: "a",
+    character: "ㅏ"
+}, {
+    text: "ae",
+    character: "ㅐ"
+}, {
+    text: "ya",
+    character: "ㅑ"
+}, {
+    text: "yae",
+    character: "ㅒ"
+}, {
+    text: "eo",
+    character: "ㅓ"
+}, {
+    text: "e",
+    character: "ㅔ"
+}, {
+    text: "yeo",
+    character: "ㅕ"
+}, {
+    text: "ye",
+    character: "ㅖ"
+}, {
+    text: "o",
+    character: "ㅗ"
+}, {
+    text: "wa",
+    character: "ㅘ"
+}, {
+    text: "wae",
+    character: "ㅙ"
+}, {
+    text: "oe",
+    character: "ㅚ"
+}, {
+    text: "yo",
+    character: "ㅛ"
+}, {
+    text: "u",
+    character: "ㅜ"
+}, {
+    text: "wo",
+    character: "ㅝ"
+}, {
+    text: "we",
+    character: "ㅞ"
+}, {
+    text: "wi",
+    character: "ㅟ"
+}, {
+    text: "yu",
+    character: "ㅠ"
+}, {
+    text: "eu",
+    character: "ㅡ"
+}, {
+    text: "yi",
+    character: "ㅢ"
+}, {
+    text: "i",
+    character: "ㅣ"
 }];
 

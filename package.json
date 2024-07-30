@@ -8,36 +8,22 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/cli": "^5.0.8",
+    "autoprefixer": "^10",
     "core-js": "^3.6.5",
     "lodash-es": "^4.17.15",
+    "postcss": "^8",
     "tailwindcss": "^3.0.11",
-    "vue": "^3.0.0-0"
+    "vue": "^3.4.34"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~5.0.4",
-    "@vue/cli-plugin-eslint": "~5.0.4",
-    "@vue/cli-service": "~5.0.4",
-    "@vue/cli-plugin-eslint": "~5.0.4",
+    "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
-    "@vue/compiler-sfc": "^3.0.0-0",
+    "@vue/compiler-sfc": "^3.4.34",
     "babel-eslint": "^10.1.0",
-    "eslint": "^9.6.0",
-    "eslint-plugin-vue": "^9.1.1",
+    "eslint": "^9.8.0",
+    "eslint-plugin-vue": "^9.27.0",
     "vue-cli-plugin-tailwind": "~3.0.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
   },
   "browserslist": [
     "> 1%",

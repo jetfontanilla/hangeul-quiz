@@ -14,7 +14,7 @@
     "lodash-es": "^4.17.15",
     "postcss": "^8",
     "tailwindcss": "^3.4.13",
-    "vue": "^3.4.37"
+    "vue": "^3.5.9"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.8",
